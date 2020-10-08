@@ -1,0 +1,15 @@
+Package: covid19.SPF
+Type: Package
+Title: COVID data from Santé Publique France 
+Version: 0.1
+Date: 2020-10-06
+Encoding: UTF-8
+Author: Hervé Perdry
+Maintainer: Hervé Perdry <herve.perdry@u-psud.fr>
+Description: Easy downloading of four datasets from Santé Publique France.
+License: GPL-3
+NeedsCompilation: no
+Depends: R (>= 4.0.0)
+LazyLoad: yes
+LazyData: yes
+RoxygenNote: 7.1.1
