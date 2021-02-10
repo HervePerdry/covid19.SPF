@@ -10,4 +10,12 @@
 #'
 #' @examples
 
-rolling.mean <- function(x, n = 7) as.vector(filter(x, rep(1/n,n)))
+rolling.mean <- function(x, n = 7, align = c("center", "left", "right")) {
+  align <- match.arg(align)
+  if(align == "center")
+    as.vector(filter(x, rep(1/n,n)))
+  else if(align == "right") 
+    as.vector(filter(x, rep(1/n,n), sides = 1))
+  else
+    c( as.vector(filter(x, rep(1/n,n), sides = 1))[-seq(1,n-1)], rep(NA, n-1) )
+}

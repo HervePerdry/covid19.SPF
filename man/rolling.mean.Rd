@@ -4,7 +4,7 @@
 \alias{rolling.mean}
 \title{Rolling mean}
 \usage{
-rolling.mean(x, n = 7)
+rolling.mean(x, n = 7, align = c("center", "left", "right"))
 }
 \arguments{
 \item{x}{a numeric vector}
