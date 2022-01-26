@@ -21,9 +21,15 @@ described at \url{https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-rel
 and do some cleaning.
 }
 \examples{
-cov <- read.spf("nouveaux")
-cov <- agg(cov, 3:6, 2)
-plot(cov$jour, cov$incid_rea, log = "y", type = "o")
-lines(cov$jour, rolling.mean(cov$incid_rea), col = "red", lwd = 2)
+covid <- read.spf("nouveaux")
+covid <- agg(covid, 3:6, 2)
+covid$rolling_hosp <- rolling.mean(covid$incid_hosp, 7, "right")
+covid$rolling_rea  <- rolling.mean(covid$incid_rea,  7, "right")
+covid$rolling_dc   <- rolling.mean(covid$incid_dc,   7, "right")
+covid$rolling_rad  <- rolling.mean(covid$incid_rad,  7, "right")
+
+
+plot(covid$jour, covid$incid_dc, type = "h")
+lines(covid$jour, covid$rolling_dc, col = "red", lwd = 2)
 
 }
